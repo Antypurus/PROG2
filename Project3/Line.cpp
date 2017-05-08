@@ -42,14 +42,30 @@ void Line::setFreq(int freq) {
 ostream& operator<<(ostream& os, const Line& line) {
 	os <<"Line ID:"<< line.getId()<<":"<<std::endl;
 	os << "\tFrequencia:" << line.getFreq() << std::endl;
-	std::vector<int>::iterator ite = line.getTimings().begin();
 	os << "\tPercurso:\n\t";
+	/*
+	int ite = 0;
 	for (int it = 0; it < line.getBusStops().size();++it) {
 		os << line.getBusStops()[it];
-		if (ite != line.getTimings().end()) {
-			os << " - " << *ite << " min - ";
+		if (ite < line.getTimings().size()) {
+			os << " - " << line.getTimings()[ite] << " min - ";
 			ite++;
 		}
+	}*/
+
+	std::vector<std::string>places = line.getBusStops();
+	std::vector<int>times = line.getTimings();
+
+	std::vector<int>::iterator ite = times.begin();
+
+	for (std::vector<std::string>::iterator it = places.begin();it != places.end();++it) {
+		os << *it;
+		if (ite != times.end()) {
+			os << " - " << *ite << "min - ";
+			++ite;
+		}
 	}
+	
+
 	return os;
 }

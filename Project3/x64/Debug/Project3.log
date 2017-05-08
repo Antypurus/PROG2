@@ -1,34 +1,72 @@
-﻿  Company.cpp
-c:\users\craky\documents\visual studio 2017\projects\project3\project3\company.cpp(71): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-c:\users\craky\documents\visual studio 2017\projects\project3\project3\company.cpp(72): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\utility(217): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'const unsigned int', possible loss of data
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(840): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<unsigned __int64,Driver,void,0>(std::pair<unsigned __int64,Driver> &&) noexcept' being compiled
+﻿  Shift.cpp
+  main.cpp
+c:\users\posto\source\repos\prog2\project3\main.cpp(30): error C2679: binary '<<': no operator found which takes a right-hand operand of type 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Line>>>' (or there is no acceptable conversion)
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(488): note: could be 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(468): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(448): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(428): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(408): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(388): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(368): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(348): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(328): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(308): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(283): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(263): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(229): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(209): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(203): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(197): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(192): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))'
+  c:\users\posto\source\repos\prog2\project3\line.h(30): note: or       'std::ostream &operator <<(std::ostream &,const Line &)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(1011): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const std::error_code &)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(973): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>,std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Line>>>>(std::basic_ostream<char,std::char_traits<char>> &&,const _Ty &)'
+          with
+          [
+              _Ty=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Line>>>
+          ]
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(963): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,unsigned char)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(956): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const unsigned char *)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(949): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,signed char)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(942): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const signed char *)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(816): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(769): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(731): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)'
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\ostream(684): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)'
+  c:\users\posto\source\repos\prog2\project3\main.cpp(30): note: while trying to match the argument list '(std::ostream, std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Line>>>)'
+  Line.cpp
+  Driver.cpp
+  Company.cpp
+c:\users\posto\source\repos\prog2\project3\company.cpp(69): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+c:\users\posto\source\repos\prog2\project3\company.cpp(70): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\utility(217): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'const unsigned int', possible loss of data
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(840): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<unsigned __int64,Driver,void,0>(std::pair<unsigned __int64,Driver> &&) noexcept' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(840): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<unsigned __int64,Driver,void,0>(std::pair<unsigned __int64,Driver> &&) noexcept' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(840): note: see reference to function template instantiation 'std::pair<const _Kty,_Ty>::pair<unsigned __int64,Driver,void,0>(std::pair<unsigned __int64,Driver> &&) noexcept' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(959): note: see reference to function template instantiation 'void std::allocator<_Other>::construct<_Objty,_Ty>(_Objty *,_Ty &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(959): note: see reference to function template instantiation 'void std::allocator<_Other>::construct<_Objty,_Ty>(_Objty *,_Ty &&)' being compiled
           with
           [
               _Other=std::_List_node<std::pair<const unsigned int,Driver>,void *>,
               _Objty=std::pair<const unsigned int,Driver>,
               _Ty=std::pair<unsigned __int64,Driver>
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(959): note: see reference to function template instantiation 'void std::allocator<_Other>::construct<_Objty,_Ty>(_Objty *,_Ty &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(959): note: see reference to function template instantiation 'void std::allocator<_Other>::construct<_Objty,_Ty>(_Objty *,_Ty &&)' being compiled
           with
           [
               _Other=std::_List_node<std::pair<const unsigned int,Driver>,void *>,
               _Objty=std::pair<const unsigned int,Driver>,
               _Ty=std::pair<unsigned __int64,Driver>
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(1097): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,std::pair<unsigned __int64,Driver>>(std::allocator<_Other> &,_Objty *,std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(1097): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,std::pair<unsigned __int64,Driver>>(std::allocator<_Other> &,_Objty *,std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Alloc=std::allocator<std::_List_node<std::pair<const unsigned int,Driver>,void *>>,
@@ -36,7 +74,7 @@ c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.1
               _Other=std::_List_node<std::pair<const unsigned int,Driver>,void *>,
               _Objty=std::pair<const unsigned int,Driver>
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(1096): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,std::pair<unsigned __int64,Driver>>(std::allocator<_Other> &,_Objty *,std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xmemory0(1096): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,std::pair<unsigned __int64,Driver>>(std::allocator<_Other> &,_Objty *,std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Alloc=std::allocator<std::_List_node<std::pair<const unsigned int,Driver>,void *>>,
@@ -44,57 +82,57 @@ c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.1
               _Other=std::_List_node<std::pair<const unsigned int,Driver>,void *>,
               _Objty=std::pair<const unsigned int,Driver>
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(853): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Other>>::construct<_Ty,std::pair<unsigned __int64,Driver>>(_Ty *,std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(853): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Other>>::construct<_Ty,std::pair<unsigned __int64,Driver>>(_Ty *,std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Other=std::_List_node<std::pair<const unsigned int,Driver>,void *>,
               _Ty=std::pair<const unsigned int,Driver>
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(851): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Other>>::construct<_Ty,std::pair<unsigned __int64,Driver>>(_Ty *,std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(851): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Other>>::construct<_Ty,std::pair<unsigned __int64,Driver>>(_Ty *,std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Other=std::_List_node<std::pair<const unsigned int,Driver>,void *>,
               _Ty=std::pair<const unsigned int,Driver>
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(1086): note: see reference to function template instantiation 'std::_List_node<std::pair<const _Kty,_Ty>,void *> *std::_List_buy<std::pair<const _Kty,_Ty>,_Alloc>::_Buynode<std::pair<unsigned __int64,Driver>>(std::_List_node<std::pair<const _Kty,_Ty>,void *> *,std::_List_node<std::pair<const _Kty,_Ty>,void *> *,std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(1086): note: see reference to function template instantiation 'std::_List_node<std::pair<const _Kty,_Ty>,void *> *std::_List_buy<std::pair<const _Kty,_Ty>,_Alloc>::_Buynode<std::pair<unsigned __int64,Driver>>(std::_List_node<std::pair<const _Kty,_Ty>,void *> *,std::_List_node<std::pair<const _Kty,_Ty>,void *> *,std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver,
               _Alloc=std::allocator<std::pair<const unsigned int,Driver>>
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(1085): note: see reference to function template instantiation 'std::_List_node<std::pair<const _Kty,_Ty>,void *> *std::_List_buy<std::pair<const _Kty,_Ty>,_Alloc>::_Buynode<std::pair<unsigned __int64,Driver>>(std::_List_node<std::pair<const _Kty,_Ty>,void *> *,std::_List_node<std::pair<const _Kty,_Ty>,void *> *,std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(1085): note: see reference to function template instantiation 'std::_List_node<std::pair<const _Kty,_Ty>,void *> *std::_List_buy<std::pair<const _Kty,_Ty>,_Alloc>::_Buynode<std::pair<unsigned __int64,Driver>>(std::_List_node<std::pair<const _Kty,_Ty>,void *> *,std::_List_node<std::pair<const _Kty,_Ty>,void *> *,std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver,
               _Alloc=std::allocator<std::pair<const unsigned int,Driver>>
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(1056): note: see reference to function template instantiation 'void std::list<std::pair<const _Kty,_Ty>,std::allocator<std::pair<const _Kty,_Ty>>>::_Insert<std::pair<unsigned __int64,Driver>>(std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>,std::_Iterator_base0>,std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(1056): note: see reference to function template instantiation 'void std::list<std::pair<const _Kty,_Ty>,std::allocator<std::pair<const _Kty,_Ty>>>::_Insert<std::pair<unsigned __int64,Driver>>(std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>,std::_Iterator_base0>,std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(1056): note: see reference to function template instantiation 'void std::list<std::pair<const _Kty,_Ty>,std::allocator<std::pair<const _Kty,_Ty>>>::_Insert<std::pair<unsigned __int64,Driver>>(std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>,std::_Iterator_base0>,std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\list(1056): note: see reference to function template instantiation 'void std::list<std::pair<const _Kty,_Ty>,std::allocator<std::pair<const _Kty,_Ty>>>::_Insert<std::pair<unsigned __int64,Driver>>(std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>,std::_Iterator_base0>,std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xhash(295): note: see reference to function template instantiation 'void std::list<std::pair<const _Kty,_Ty>,std::allocator<std::pair<const _Kty,_Ty>>>::emplace_front<std::pair<unsigned __int64,Driver>>(std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xhash(295): note: see reference to function template instantiation 'void std::list<std::pair<const _Kty,_Ty>,std::allocator<std::pair<const _Kty,_Ty>>>::emplace_front<std::pair<unsigned __int64,Driver>>(std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xhash(295): note: see reference to function template instantiation 'void std::list<std::pair<const _Kty,_Ty>,std::allocator<std::pair<const _Kty,_Ty>>>::emplace_front<std::pair<unsigned __int64,Driver>>(std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\xhash(295): note: see reference to function template instantiation 'void std::list<std::pair<const _Kty,_Ty>,std::allocator<std::pair<const _Kty,_Ty>>>::emplace_front<std::pair<unsigned __int64,Driver>>(std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\unordered_map(292): note: see reference to function template instantiation 'std::pair<std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::_Hash<std::_Umap_traits<_Kty,_Ty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>::emplace<std::pair<unsigned __int64,Driver>>(std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\unordered_map(292): note: see reference to function template instantiation 'std::pair<std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::_Hash<std::_Umap_traits<_Kty,_Ty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>::emplace<std::pair<unsigned __int64,Driver>>(std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Kty=unsigned int,
@@ -103,7 +141,7 @@ c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.1
               _Keyeq=std::equal_to<unsigned int>,
               _Alloc=std::allocator<std::pair<const unsigned int,Driver>>
           ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\unordered_map(292): note: see reference to function template instantiation 'std::pair<std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::_Hash<std::_Umap_traits<_Kty,_Ty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>::emplace<std::pair<unsigned __int64,Driver>>(std::pair<unsigned __int64,Driver> &&)' being compiled
+  c:\program files\microsoft visual studio\2017\community\vc\tools\msvc\14.10.25017\include\unordered_map(292): note: see reference to function template instantiation 'std::pair<std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::_Hash<std::_Umap_traits<_Kty,_Ty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>::emplace<std::pair<unsigned __int64,Driver>>(std::pair<unsigned __int64,Driver> &&)' being compiled
           with
           [
               _Kty=unsigned int,
@@ -112,19 +150,19 @@ c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.1
               _Keyeq=std::equal_to<unsigned int>,
               _Alloc=std::allocator<std::pair<const unsigned int,Driver>>
           ]
-  c:\users\craky\documents\visual studio 2017\projects\project3\project3\company.cpp(72): note: see reference to function template instantiation 'std::pair<std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::unordered_map<_Kty,_Ty,std::hash<unsigned int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>::insert<std::pair<unsigned __int64,Driver>,void>(_Valty &&)' being compiled
+  c:\users\posto\source\repos\prog2\project3\company.cpp(70): note: see reference to function template instantiation 'std::pair<std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::unordered_map<_Kty,_Ty,std::hash<unsigned int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>::insert<std::pair<unsigned __int64,Driver>,void>(_Valty &&)' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver,
               _Valty=std::pair<unsigned __int64,Driver>
           ]
-  c:\users\craky\documents\visual studio 2017\projects\project3\project3\company.cpp(72): note: see reference to function template instantiation 'std::pair<std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::unordered_map<_Kty,_Ty,std::hash<unsigned int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>::insert<std::pair<unsigned __int64,Driver>,void>(_Valty &&)' being compiled
+  c:\users\posto\source\repos\prog2\project3\company.cpp(70): note: see reference to function template instantiation 'std::pair<std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::unordered_map<_Kty,_Ty,std::hash<unsigned int>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>::insert<std::pair<unsigned __int64,Driver>,void>(_Valty &&)' being compiled
           with
           [
               _Kty=unsigned int,
               _Ty=Driver,
               _Valty=std::pair<unsigned __int64,Driver>
           ]
-  Project3.vcxproj -> C:\Users\craky\Documents\Visual Studio 2017\Projects\Project3\x64\Debug\Project3.exe
-  Project3.vcxproj -> C:\Users\craky\Documents\Visual Studio 2017\Projects\Project3\x64\Debug\Project3.pdb (Partial PDB)
+  Bus.cpp
+  Generating Code...
