@@ -146,6 +146,15 @@ void Empresa::loadAllLines(string filename) {
 	file.close();
 }
 
+bool Empresa::doesDriverExist(const unsigned int id)
+{
+	unsigned int c = this->drivers.count(id);
+	if (c != 0) {
+		return true;
+	}
+	return false;
+}
+
 
 ////////////////////////////
 // other methods
@@ -154,7 +163,7 @@ void Empresa::distribuiServico(){
 	//TODO
 }
 
-void Empresa::addDriver(Driver driver)
+void Empresa::addDriver(const Driver &driver)
 {
 	int c = this->drivers.count(driver.getId());
 	if (c != 0) {
@@ -162,4 +171,56 @@ void Empresa::addDriver(Driver driver)
 		return;
 	}
 	this->drivers.insert(std::make_pair(driver.getId(), driver));
+	return;
+}
+
+void Empresa::removeDriver(const unsigned int id)
+{
+	int c = this->drivers.count(id);
+	if (c == 0) {
+		printf("There is no driver with this id\n");
+		return;
+	}
+	auto iterator = this->drivers.find(id);
+	this->drivers.erase(iterator);
+	return;
+}
+
+void Empresa::changeDriverName(const unsigned int id, const std::string name) {
+	if (!this->doesDriverExist(id)) {
+		printf("There is no driver with this id\n");
+		return;
+	}
+	this->drivers[id].setName(name);
+	return;
+}
+
+void Empresa::changeDriverMaxHourShift(const unsigned int id, const unsigned int maxHours)
+{
+	if (!this->doesDriverExist(id)) {
+		printf("There is no driver with this id\n");
+		return;
+	}
+	this->drivers[id].setMaxHoursPerShift(id);
+	return;
+}
+
+void Empresa::changeDriverMaxHoursWeek(const unsigned int id, const unsigned int maxHours)
+{
+	if (!this->doesDriverExist(id)) {
+		printf("There is no driver with this id\n");
+		return;
+	}
+	this->drivers[id].setMaxHoursPerWeek(maxHours);
+	return;
+}
+
+void Empresa::changeDriverMinRestTime(const unsigned int id, const unsigned int minHours)
+{
+	if (!this->doesDriverExist(id)) {
+		printf("There is no driver with this id\n");
+		return;
+	}
+	this->drivers[id].setRestTimeBetweenShifts(minHours);
+	return;
 }

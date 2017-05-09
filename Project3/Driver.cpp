@@ -58,7 +58,7 @@ void Driver::setRestTimeBetweenShifts(unsigned int time)
 
 void Driver::assignShift(Shift shift)
 {
-	int delta = 0;
+	unsigned int delta = 0;
 	delta = shift.getEndTime() - shift.getStartTime();
 	if (delta > this->maxHours) {
 		printf("This Shift Is Too Long For this Driver\n");
