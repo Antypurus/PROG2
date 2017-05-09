@@ -32,4 +32,5 @@ private:
 public:
   // other methods
   void distribuiServico();
+  void addDriver(Driver driver);
 };

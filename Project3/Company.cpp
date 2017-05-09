@@ -153,3 +153,13 @@ void Empresa::loadAllLines(string filename) {
 void Empresa::distribuiServico(){
 	//TODO
 }
+
+void Empresa::addDriver(Driver driver)
+{
+	int c = this->drivers.count(driver.getId());
+	if (c != 0) {
+		printf("There is already a driver with this id\n");
+		return;
+	}
+	this->drivers.insert(std::make_pair(driver.getId(), driver));
+}
