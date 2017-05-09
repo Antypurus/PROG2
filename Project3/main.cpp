@@ -3,6 +3,7 @@
 #include "Line.h"
 #include "Driver.h"
 #include <unordered_map>
+#include <sstream>
 
 
 void LineMenu(Empresa &empresa) {
@@ -48,6 +49,21 @@ int main(){
 	std::cout << "|      Driver Menu      |" << std::endl;
 	std::cout << "|      Driver Menu      |" << std::endl;
 	std::cout << "-------------------------" << std::endl;
+	
+	std::stringstream option;
+	std::string help;
+	std::cin>>help;
+	optiom.clear();
+	option.str(help);
+	
+	int op=0;
+	option>>op;
+	
+	switch(op){
+		case(1):break;
+		case(2):break;
+		default:break;
+	}
 
 	system("pause");
 	return 0;
