@@ -29,10 +29,27 @@ int Line::getFreq()const {
 
 void Line::addBusStop(string stop) {
 	this->busStopList.push_back(stop);
+	this->calculateNeededBuses();
 }
 
 void Line::addTimeListEntry(int time) {
 	this->timesList.push_back(time);
+	this->calculateNeededBuses();
+}
+
+unsigned int Line::calcTraverTime() const
+{
+	unsigned int counter = 0;
+	for (std::vector<int>::const_iterator it = this->timesList.begin(); it != this->timesList.end(); ++it) {
+		counter += *it;
+	}
+	return counter * 2;
+}
+
+unsigned int Line::calculateNeededBuses()
+{
+	this->nAutocarros = (((double)(calcTraverTime()) / this->frequencia) + 1);
+	return nAutocarros;
 }
 
 void Line::setFreq(int freq) {
@@ -43,15 +60,6 @@ ostream& operator<<(ostream& os, const Line& line) {
 	os <<"Line ID:"<< line.getId()<<":"<<std::endl;
 	os << "\tFrequencia:" << line.getFreq() << std::endl;
 	os << "\tPercurso:\n\t";
-	/*
-	int ite = 0;
-	for (int it = 0; it < line.getBusStops().size();++it) {
-		os << line.getBusStops()[it];
-		if (ite < line.getTimings().size()) {
-			os << " - " << line.getTimings()[ite] << " min - ";
-			ite++;
-		}
-	}*/
 
 	std::vector<std::string>places = line.getBusStops();
 	std::vector<int>times = line.getTimings();
@@ -65,7 +73,6 @@ ostream& operator<<(ostream& os, const Line& line) {
 			++ite;
 		}
 	}
-	
 
 	return os;
 }
