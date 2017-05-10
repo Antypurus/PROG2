@@ -7,7 +7,7 @@
 
 class Line;
 class Driver;
-
+class Shift;
 
 using namespace std;
 
@@ -30,15 +30,22 @@ public:
 private:
 	void loadAllDrivers(string filename);
 	void loadAllLines(string filename);
-	bool doesDriverExist(const unsigned int id);
+	bool doesDriverExist(const unsigned int id)const;
+	bool doesLineExist(const unsigned int id)const;
 public:
-  // other methods
+	// other methods
 	void distribuiServico();
-  //methods for chanings details with the drivers
+	//methods for chanings details with the drivers
 	void addDriver(const Driver &driver);
 	void removeDriver(const unsigned int  id);
 	void changeDriverName(const unsigned int id, const std::string name);
 	void changeDriverMaxHourShift(const unsigned int id, const unsigned int maxHours);
 	void changeDriverMaxHoursWeek(const unsigned int id, const unsigned int maxHours);
 	void changeDriverMinRestTime(const unsigned int id, const unsigned int minHours);
+	void addDriverShift(const unsigned int id, const Shift &shift);
+	//void changeDriverID(const unsigned int initId, const unsigned int afterID);
+	void listDriverWork(const unsigned int id)const;
+	//Line Related methods
+	void listLineInfo(const unsigned int id)const;
+	std::vector<Line> linesWithStop(std::string stop);
 };

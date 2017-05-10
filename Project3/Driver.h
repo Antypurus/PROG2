@@ -34,6 +34,7 @@ class Driver{
   void setRestTimeBetweenShifts(unsigned int time);
 
   void assignShift(Shift shift);
+  void listWork()const;
 
 
 };

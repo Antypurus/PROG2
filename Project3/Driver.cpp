@@ -1,4 +1,5 @@
 #include "Driver.h"
+#include <iostream>
 
 Driver::Driver(string name, unsigned int id, unsigned int maxHours, unsigned int maxWeekWorkingTime, unsigned int minRestTime){
 	this->id = id;
@@ -76,4 +77,13 @@ void Driver::assignShift(Shift shift)
 	}
 	this->currentWeekTime += delta;
 	this->shifts.push_back(shift);
+}
+
+void Driver::listWork()const {
+	std::cout << "Driver ID:" << this->getId() << std::endl;
+	std::cout << "\tWork:" << std::endl;
+	for (std::vector<Shift>::const_iterator it = this->shifts.begin();it != this->shifts.end();++it) {
+		std::cout << "\t" << *it << std::endl;
+	}
+	return;
 }

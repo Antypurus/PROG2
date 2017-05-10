@@ -4,6 +4,7 @@
 #include "Line.h"
 #include "Driver.h"
 #include <thread>
+#include "Shift.h"
 
 Empresa::Empresa(string nome, string ficheiro_drivers, string ficheiro_linhas){
 	this->nome = nome;
@@ -146,10 +147,18 @@ void Empresa::loadAllLines(string filename) {
 	file.close();
 }
 
-bool Empresa::doesDriverExist(const unsigned int id)
+bool Empresa::doesDriverExist(const unsigned int id)const
 {
 	unsigned int c = this->drivers.count(id);
 	if (c != 0) {
+		return true;
+	}
+	return false;
+}
+
+bool Empresa::doesLineExist(const unsigned int id) const
+{
+	if (lines.count(id)!=0){
 		return true;
 	}
 	return false;
@@ -223,4 +232,51 @@ void Empresa::changeDriverMinRestTime(const unsigned int id, const unsigned int 
 	}
 	this->drivers[id].setRestTimeBetweenShifts(minHours);
 	return;
+}
+
+void Empresa::addDriverShift(const unsigned int id, const Shift &shift)
+{
+	if (!this->doesDriverExist(id)) {
+		printf("There is no driver with this id\n");
+		return;
+	}
+	this->drivers[id].assignShift(shift);
+	return;
+}
+/*
+void Empresa::changeDriverID(const unsigned int initId, const unsigned int afterID)
+{
+	if (!this->doesDriverExist(initId)) {
+		printf("There is no driver with this id\n");
+		return;
+	}
+	if (this->doesDriverExist(afterID)) {
+		printf("There is already a driver with the id you want to change this driver to"\n);
+		return;
+	}
+	Driver driver = this->drivers[initId];
+}*/
+
+void Empresa::listDriverWork(const unsigned int id) const
+{
+	if (!(this->doesDriverExist(id))) {
+		printf("There is no drier with this id\n");
+		return;
+	}
+	this->drivers.at(id).listWork();
+	return;
+}
+
+void Empresa::listLineInfo(const unsigned int id) const
+{
+	if (!this->doesLineExist(id)) {
+		printf("There is no line with this id\n");
+		return;
+	}
+	std::cout << this->lines.at(id) << std::endl;
+}
+
+std::vector<Line> Empresa::linesWithStop(std::string stop)
+{
+	return std::vector<Line>();
 }

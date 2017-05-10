@@ -33,4 +33,5 @@ class Shift{
   unsigned int setEndTime(unsigned int);
 
   // other methods
+  friend ostream& operator<<(ostream &os, const Shift shift);
 };
