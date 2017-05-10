@@ -87,3 +87,21 @@ void Driver::listWork()const {
 	}
 	return;
 }
+
+bool Driver::isDriverFull() const
+{
+	if (this->currentWeekTime == this->maxWeekWorkingTime) {
+		return true;
+	}
+	return false;
+}
+
+ostream & operator<<(ostream & os, const Driver & driver)
+{
+	os << "Driver ID:" << driver.getId()<<'\n';
+	os << "\t Driver Name:" << driver.getName()<<'\n';
+	os << "\t Driver Max Work Time Per Shift:" << driver.getShiftMaxDuration() << '\n';
+	os << "\t Driver Max Work Time Per Week:" << driver.getMaxWeekWorkingTime() << '\n';
+	os << "\t Driver Min Rest Time Between Shifts:" << driver.getMinRestTime() << '\n';
+	return os;
+}

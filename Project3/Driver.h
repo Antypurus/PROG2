@@ -36,5 +36,9 @@ class Driver{
   void assignShift(Shift shift);
   void listWork()const;
 
+  bool isDriverFull()const;
+
+  friend ostream& operator<<(ostream &os, const Driver &driver);
+
 
 };

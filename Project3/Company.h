@@ -43,6 +43,7 @@ public:
 	void changeDriverMaxHoursWeek(const unsigned int id, const unsigned int maxHours);
 	void changeDriverMinRestTime(const unsigned int id, const unsigned int minHours);
 	void addDriverShift(const unsigned int id, const Shift &shift);
+	std::vector<Driver> getNotFullDrivers()const;
 	//void changeDriverID(const unsigned int initId, const unsigned int afterID);
 	void listDriverWork(const unsigned int id)const;
 	//Line Related methods

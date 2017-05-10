@@ -10,7 +10,6 @@ Empresa::Empresa(string nome, string ficheiro_drivers, string ficheiro_linhas){
 	this->nome = nome;
 	std::thread ld(&Empresa::loadAllDrivers,this,ficheiro_drivers);
 	std::thread ll(&Empresa::loadAllLines, this,ficheiro_linhas);
-
 	ll.join();
 	ld.join();
 }
@@ -243,6 +242,18 @@ void Empresa::addDriverShift(const unsigned int id, const Shift &shift)
 	this->drivers[id].assignShift(shift);
 	return;
 }
+
+std::vector<Driver> Empresa::getNotFullDrivers() const
+{
+	std::vector<Driver>ret;
+	for (auto it = this->drivers.begin(); it != this->drivers.end(); ++it) {
+		if (!it->second.isDriverFull()) {
+			ret.push_back(it->second);
+		}
+	}
+	return ret;
+}
+
 /*
 void Empresa::changeDriverID(const unsigned int initId, const unsigned int afterID)
 {
@@ -278,5 +289,15 @@ void Empresa::listLineInfo(const unsigned int id) const
 
 std::vector<Line> Empresa::linesWithStop(std::string stop)
 {
-	return std::vector<Line>();
+	std::vector<Line>ret;
+	std::vector<std::string>help;
+	for (auto it = this->lines.begin(); it != this->lines.end(); ++it) {
+		help = it->second.getBusStops();
+		for (auto ite = help.begin(); ite != help.end(); ++ite) {
+			if ((*ite) == stop) {
+				ret.push_back(it->second);
+			}
+		}
+	}
+	return ret;
 }
