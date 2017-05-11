@@ -15,6 +15,8 @@ class Empresa{
 private:
 	bool shouldUpdate = false;
 	string nome;
+	std::string driverFile = "";
+	std::string fileFile = "";
 public:
 	vector<Driver> condutores;
 	vector<Line> linhas;
@@ -24,12 +26,15 @@ public:
 
  public:
 	 Empresa(string nome, string ficheiro_drivers, string ficheiro_linhas);
-  // get methods
+	 ~Empresa();
+	 // get methods
 	 string getNome() const;
-  // set Methods
+	// set Methods
 private:
 	void loadAllDrivers(string filename);
+	void saveAllDrivers();
 	void loadAllLines(string filename);
+	void saveAllLines();
 	bool doesDriverExist(const unsigned int id)const;
 	bool doesLineExist(const unsigned int id)const;
 public:

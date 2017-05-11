@@ -8,10 +8,27 @@
 
 Empresa::Empresa(string nome, string ficheiro_drivers, string ficheiro_linhas){
 	this->nome = nome;
+	this->fileFile = ficheiro_linhas;
+	this->driverFile = ficheiro_drivers;
 	std::thread ld(&Empresa::loadAllDrivers,this,ficheiro_drivers);
 	std::thread ll(&Empresa::loadAllLines, this,ficheiro_linhas);
 	ll.join();
 	ld.join();
+}
+
+Empresa::~Empresa()
+{
+	if (this->shouldUpdate) {
+		printf("Beggining Saving Required Files\n");
+		this->saveAllDrivers();
+		this->saveAllLines();
+		printf("File Saving Sequence Finished \n");
+		return;
+	}
+	else {
+		printf("Exiting , no files required saving\n");
+		return;
+	}
 }
 
 ////////////////////////////////
@@ -80,6 +97,29 @@ void Empresa::loadAllDrivers(string filename) {
 	file.close();
 }
 
+void Empresa::saveAllDrivers()
+{
+	std::ofstream file(this->driverFile);
+	static Driver help;
+	if (file.is_open()) {
+		for (auto it = this->drivers.begin();it != this->drivers.end();++it) {
+			help = it->second;
+			file << help.getId() << " ; ";
+			file << help.getName() << " ; ";
+			file << help.getShiftMaxDuration() << " ; ";
+			file << help.getMaxWeekWorkingTime() << " ; ";
+			file << help.getMinRestTime() << "\n";
+		}
+	}
+	else {
+		printf("Error Opening File , Information Failed to Be Saved\n");
+		file.close();
+		return;
+	}
+	file.close();
+	return;
+}
+
 void Empresa::loadAllLines(string filename) {
 	std::ifstream file(filename);
 	std::string fullLine;
@@ -144,6 +184,34 @@ void Empresa::loadAllLines(string filename) {
 		std::cout << "Could Not Open the File" << std::endl;
 	}
 	file.close();
+}
+
+void Empresa::saveAllLines()
+{
+	ofstream file(this->fileFile);
+	if (file.is_open()) {
+		for (auto it = this->lines.begin();it != this->lines.end();++it) {
+			Line help = it->second;
+			file << help.getId() << " ; ";
+			file << help.getFreq() << " ; ";
+			for (auto i = 0;i < (help.getBusStops().size()-1);++it) {
+				file << help.getBusStops()[i] << " , ";
+			}
+			file << help.getBusStops()[help.getBusStops().size() - 1] << " ; ";
+
+			for (auto i = 0;i < (help.getTimings().size() - 1);++i) {
+				file << help.getTimings()[i] << " , ";
+			}
+			file << help.getTimings()[help.getTimings().size() - 1];
+		}
+	}
+	else {
+		printf("Failed To Open File Line Information Will Not Be Saved\n");
+		file.close();
+		return;
+	}
+	file.close();
+	return;
 }
 
 bool Empresa::doesDriverExist(const unsigned int id)const
