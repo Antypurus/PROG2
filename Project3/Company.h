@@ -37,6 +37,7 @@ private:
 	void saveAllLines();
 	bool doesDriverExist(const unsigned int id)const;
 	bool doesLineExist(const unsigned int id)const;
+	void setShouldUpdate() { this->shouldUpdate = true; }
 public:
 	// other methods
 	void distribuiServico();
@@ -55,5 +56,8 @@ public:
 	void listLineInfo(const unsigned int id)const;
 	void addBusStop(const unsigned int lineID, const std::string &stop, const unsigned int timeLastStop);
 	void addBusStop(const unsigned int lineID, const unsigned int pos, const std::string &stop, const unsigned int timeLastStop);
+	void editLineTime(const unsigned int lineID, const unsigned int pos, const unsigned int newTime);
+	void editLineStop(const unsigned int lineID, const unsigned int pos, const std::string stop);
+	void changeLineFrequency(const unsigned int lineID, const unsigned int freq);
 	std::vector<Line> linesWithStop(std::string stop);
 };

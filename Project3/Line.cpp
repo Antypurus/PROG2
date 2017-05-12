@@ -37,6 +37,16 @@ void Line::addTimeListEntry(int time) {
 	this->calculateNeededBuses();
 }
 
+bool Line::hasStop(const std::string stop) const
+{
+	for (auto it = this->busStopList.begin();it != this->busStopList.end();++it) {
+		if ((*it) == stop) {
+			return true;
+		}
+	}
+	return false;
+}
+
 int Line::operator+(const Line & line)
 {
 	int counter = 0;
@@ -62,7 +72,7 @@ unsigned int Line::calcTraverTime() const
 
 unsigned int Line::calculateNeededBuses()
 {
-	this->nAutocarros = (((double)(calcTraverTime()) / this->frequencia) + 1);
+	this->nAutocarros = (unsigned int)(((double)(calcTraverTime()) / this->frequencia) + 1);
 	return nAutocarros;
 }
 

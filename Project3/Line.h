@@ -17,6 +17,7 @@ class Line{
   unsigned int nAutocarros;
  public:
   Line(unsigned int id);
+  Line() { this->id = 0; }
   // get methods
   unsigned int getId() const;
   vector<string> getBusStops() const;
@@ -26,6 +27,7 @@ class Line{
   void setFreq(int freq);
   void addBusStop(string stop);
   void addTimeListEntry(int time);
+  bool hasStop(const std::string stop)const;
   // other methods
   int operator+(const Line &line);//return the number of shared stops
 private:

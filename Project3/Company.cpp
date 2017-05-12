@@ -194,12 +194,12 @@ void Empresa::saveAllLines()
 			Line help = it->second;
 			file << help.getId() << " ; ";
 			file << help.getFreq() << " ; ";
-			for (auto i = 0;i < (help.getBusStops().size()-1);++it) {
+			for (unsigned int i = 0;i < (help.getBusStops().size()-1);++it) {
 				file << help.getBusStops()[i] << " , ";
 			}
 			file << help.getBusStops()[help.getBusStops().size() - 1] << " ; ";
 
-			for (auto i = 0;i < (help.getTimings().size() - 1);++i) {
+			for (unsigned int i = 0;i < (help.getTimings().size() - 1);++i) {
 				file << help.getTimings()[i] << " , ";
 			}
 			file << help.getTimings()[help.getTimings().size() - 1];
@@ -247,6 +247,7 @@ void Empresa::addDriver(const Driver &driver)
 		return;
 	}
 	this->drivers.insert(std::make_pair(driver.getId(), driver));
+	this->setShouldUpdate();
 	return;
 }
 
@@ -259,6 +260,7 @@ void Empresa::removeDriver(const unsigned int id)
 	}
 	auto iterator = this->drivers.find(id);
 	this->drivers.erase(iterator);
+	this->setShouldUpdate();
 	return;
 }
 
@@ -268,6 +270,7 @@ void Empresa::changeDriverName(const unsigned int id, const std::string name) {
 		return;
 	}
 	this->drivers[id].setName(name);
+	this->setShouldUpdate();
 	return;
 }
 
@@ -278,6 +281,7 @@ void Empresa::changeDriverMaxHourShift(const unsigned int id, const unsigned int
 		return;
 	}
 	this->drivers[id].setMaxHoursPerShift(id);
+	this->setShouldUpdate();
 	return;
 }
 
@@ -288,6 +292,7 @@ void Empresa::changeDriverMaxHoursWeek(const unsigned int id, const unsigned int
 		return;
 	}
 	this->drivers[id].setMaxHoursPerWeek(maxHours);
+	this->setShouldUpdate();
 	return;
 }
 
@@ -298,6 +303,7 @@ void Empresa::changeDriverMinRestTime(const unsigned int id, const unsigned int 
 		return;
 	}
 	this->drivers[id].setRestTimeBetweenShifts(minHours);
+	this->setShouldUpdate();
 	return;
 }
 
@@ -363,6 +369,7 @@ void Empresa::addBusStop(const unsigned int lineID, const std::string &stop, con
 	}
 	this->lines[lineID].addBusStop(stop);
 	this->lines[lineID].addTimeListEntry(timeLastStop);
+	this->setShouldUpdate();
 	return;
 }
 
@@ -376,9 +383,72 @@ void Empresa::addBusStop(const unsigned int lineID, const unsigned int pos, cons
 		printf("This Position In The List Does Not Exist\n");
 		return;
 	}
-	//add to position in stop list
-	this->lines[lineID].getBusStops().insert(this->lines[lineID].getBusStops().begin()+(pos-1),stop);
-	//add to postion in time list
+	if (pos == 1) {
+		this->lines[lineID].getBusStops().insert(this->lines[lineID].getBusStops().begin(), stop);
+		this->lines[lineID].getTimings().insert(this->lines[lineID].getTimings().begin(), timeLastStop);
+		this->setShouldUpdate();
+		return;
+	}
+	else {
+		this->lines[lineID].getBusStops().insert(this->lines[lineID].getBusStops().begin() + (pos - 1), stop);
+		this->lines[lineID].getTimings().insert(this->lines[lineID].getTimings().begin() + (pos - 1), timeLastStop);
+		this->setShouldUpdate();
+		return;
+	}
+	return;
+}
+
+void Empresa::editLineTime(const unsigned int lineID, const unsigned int pos, const unsigned int newTime)
+{
+	if (!this->doesLineExist(lineID)) {
+		printf("There is no line with this ID\n");
+		return;
+	}
+	if (pos<=0 || pos>this->lines[lineID].getTimings().size()) {
+		printf("This position in the list does not exist\n");
+		return;
+	}
+	if (newTime <= 0) {
+		printf("This Time value Is Not Valid\n");
+		return;
+	}
+	this->lines[lineID].getTimings()[pos - 1] = newTime;
+	this->setShouldUpdate();
+	return;
+}
+
+void Empresa::editLineStop(const unsigned int lineID, const unsigned int pos, const std::string stop)
+{
+	if (!this->doesLineExist(lineID)) {
+		printf("There is no line with this ID\n");
+		return;
+	}
+	if (this->lines[lineID].hasStop(stop)) {
+		printf("This Stop Already Exists in the line\n");
+		return;
+	}
+	if (pos <= 0 || pos>this->lines[lineID].getBusStops().size()) {
+		printf("This position in the list does not exist\n");
+		return;
+	}
+	this->lines[lineID].getBusStops()[pos - 1] = stop;
+	this->setShouldUpdate();
+	return;
+}
+
+void Empresa::changeLineFrequency(const unsigned int lineID, const unsigned int freq)
+{
+	if (!this->doesLineExist(lineID)) {
+		printf("There is no line with this ID\n");
+		return;
+	}
+	if (freq <= 0) {
+		printf("This frequency value is not valid\n");
+		return;
+	}
+	this->lines[lineID].setFreq(freq);
+	this->setShouldUpdate();
+	return;
 }
 
 std::vector<Line> Empresa::linesWithStop(std::string stop)
