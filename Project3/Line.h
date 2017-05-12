@@ -27,6 +27,7 @@ class Line{
   void addBusStop(string stop);
   void addTimeListEntry(int time);
   // other methods
+  int operator+(const Line &line);//return the number of shared stops
 private:
 	unsigned int calcTraverTime()const;//returns the time for a full loop of the line
 	unsigned int calculateNeededBuses();//calculates the needed ammount of buses for this line

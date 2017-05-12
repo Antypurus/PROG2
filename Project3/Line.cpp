@@ -37,6 +37,20 @@ void Line::addTimeListEntry(int time) {
 	this->calculateNeededBuses();
 }
 
+int Line::operator+(const Line & line)
+{
+	int counter = 0;
+	std::vector<std::string>comStr = line.getBusStops();
+	for (auto it = comStr.begin(); it != comStr.end(); ++it) {
+		for (auto ite = this->busStopList.begin(); ite != this->busStopList.end(); ++ite) {
+			if (*ite == *it) {
+				++counter;
+			}
+		}
+	}
+	return counter;
+}
+
 unsigned int Line::calcTraverTime() const
 {
 	unsigned int counter = 0;

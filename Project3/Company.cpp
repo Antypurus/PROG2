@@ -355,6 +355,32 @@ void Empresa::listLineInfo(const unsigned int id) const
 	std::cout << this->lines.at(id) << std::endl;
 }
 
+void Empresa::addBusStop(const unsigned int lineID, const std::string &stop, const unsigned int timeLastStop)
+{
+	if (!this->doesLineExist(lineID)) {
+		printf("There is no line with this ID\n");
+		return;
+	}
+	this->lines[lineID].addBusStop(stop);
+	this->lines[lineID].addTimeListEntry(timeLastStop);
+	return;
+}
+
+void Empresa::addBusStop(const unsigned int lineID, const unsigned int pos, const std::string & stop, const unsigned int timeLastStop)
+{
+	if (!this->doesLineExist(lineID)) {
+		printf("There is no line with this ID\n");
+		return;
+	}
+	if (pos <= 0||pos>this->lines[lineID].getBusStops().size()) {
+		printf("This Position In The List Does Not Exist\n");
+		return;
+	}
+	//add to position in stop list
+	this->lines[lineID].getBusStops().insert(this->lines[lineID].getBusStops().begin()+(pos-1),stop);
+	//add to postion in time list
+}
+
 std::vector<Line> Empresa::linesWithStop(std::string stop)
 {
 	std::vector<Line>ret;

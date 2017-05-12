@@ -53,5 +53,7 @@ public:
 	void listDriverWork(const unsigned int id)const;
 	//Line Related methods
 	void listLineInfo(const unsigned int id)const;
+	void addBusStop(const unsigned int lineID, const std::string &stop, const unsigned int timeLastStop);
+	void addBusStop(const unsigned int lineID, const unsigned int pos, const std::string &stop, const unsigned int timeLastStop);
 	std::vector<Line> linesWithStop(std::string stop);
 };
