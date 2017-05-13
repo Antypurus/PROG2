@@ -33,7 +33,7 @@ unsigned int Driver::getMinRestTime() const{
   return minRestTime;
 }
 
-vector<Shift> Driver::getShifts() const{
+vector<Shift> Driver::getShifts(){
   return shifts;
 }
 
@@ -57,26 +57,29 @@ void Driver::setRestTimeBetweenShifts(unsigned int time)
 	this->minRestTime = time;
 }
 
-void Driver::assignShift(Shift shift)
+void Driver::assignShift(Shift* shift)
 {
 	unsigned int delta = 0;
-	delta = shift.getEndTime() - shift.getStartTime();
-	if (delta > this->maxHours) {
+	delta = shift->getEndTime() - shift->getStartTime();
+	if (delta > this->maxHours*60) {
 		printf("This Shift Is Too Long For this Driver\n");
 		return;
 	}
-	if (currentWeekTime + delta > this->maxWeekWorkingTime) {
+	if (currentWeekTime + delta > this->maxWeekWorkingTime*60) {
 		printf("With This Shift the Driver Would Go over the Max Hours per Week He Can Work For\n");
 		return;
 	}
 	for (std::vector<Shift>::iterator it = this->shifts.begin();it != this->shifts.end();++it) {
-		if ((it->getEndTime() - shift.getStartTime()) < this->minRestTime) {
-			printf("This Shift Doesnt Allow The Driver To Rest Properly Between Shift\n");
-			return;
+		if (it->getEndTime() >= shift->getStartTime()) {
+			if (((it)->getEndTime() - shift->getStartTime()) < this->minRestTime * 60) {
+				printf("This Shift Doesnt Allow The Driver To Rest Properly Between Shift\n");
+				return;
+			}
 		}
 	}
+	shift->setDriverId(this->id);
 	this->currentWeekTime += delta;
-	this->shifts.push_back(shift);
+	this->shifts.push_back(*shift);
 }
 
 void Driver::listWork()const {

@@ -175,6 +175,7 @@ void Empresa::loadAllLines(string filename) {
 				help2.clear();
 			}
 			toParse.clear();
+			toAdd.finalize();
 			this->linhas.push_back(toAdd);
 			this->lines.insert(std::make_pair(ID, toAdd));
 		}
@@ -307,13 +308,25 @@ void Empresa::changeDriverMinRestTime(const unsigned int id, const unsigned int 
 	return;
 }
 
-void Empresa::addDriverShift(const unsigned int id, const Shift &shift)
+void Empresa::addDriverShift(const unsigned int id,const unsigned int lineID, const unsigned int shiftNumber)
 {
 	if (!this->doesDriverExist(id)) {
 		printf("There is no driver with this id\n");
 		return;
 	}
-	this->drivers[id].assignShift(shift);
+
+	if (!this->doesLineExist(lineID)) {
+		printf("There is no line with this ID\n");
+		return;
+	}
+	
+	std::vector<Shift*> shifts = this->lines[lineID].getShifts();
+	if (shiftNumber < 0 || shiftNumber >= shifts.size()) {
+		printf("This shift does not exist\n");
+		return;
+	}
+	this->drivers[id].assignShift(shifts[shiftNumber]);
+
 	return;
 }
 
@@ -464,4 +477,47 @@ std::vector<Line> Empresa::linesWithStop(std::string stop)
 		}
 	}
 	return ret;
+}
+
+std::vector<Shift*> Empresa::getPeriodsWithNoDriver() const
+{
+	std::vector<Shift*>shifts;
+	//this is a const method , const iterators should be used
+	//we used auto because the standard not only recomends its
+	//usage but writhing auto it much faster than writhings
+	//unordered_map<unsigned itn,Line>::const_iterator
+	for (auto it = this->lines.begin();it != this->lines.end();++it) {
+		for (auto ite = it->second.getShifts().begin();ite != it->second.getShifts().end();++ite) {
+			if ((*ite)->getDriverId() == 0) {
+				shifts.push_back(*ite);
+			}
+		}
+	}
+	return shifts;
+}
+
+unsigned int Empresa::busesInALine(const unsigned int lineId) 
+{
+	unsigned int counter = 0;
+	if (!this->doesLineExist(lineId)) {
+		printf("There is no line with this id\n");
+		return counter;
+	}
+	counter = this->lines[lineId].getBuses().size();
+	return counter;
+}
+
+Bus Empresa::getBus(const unsigned int lineId, const unsigned int busNumber)
+{
+	Bus bus;
+	if (!this->doesLineExist(lineId)) {
+		printf("There is no line with this id\n");
+		return bus;
+	}
+	if (busNumber < 0 || busNumber >= this->lines[lineId].getBuses().size()) {
+		printf("There is no bus in this line with that nus number\n");
+		return bus;
+	}
+	bus = this->lines[lineId].getBuses()[busNumber];
+	return bus;
 }

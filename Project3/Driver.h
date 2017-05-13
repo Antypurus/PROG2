@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <memory>
 #include "Shift.h"
 
 
@@ -26,14 +26,14 @@ class Driver{
   unsigned int getShiftMaxDuration() const;
   unsigned int getMaxWeekWorkingTime() const;
   unsigned int getMinRestTime() const;
-  vector<Shift> getShifts() const;
+  vector<Shift> getShifts();
 
   void setName(std::string name);
   void setMaxHoursPerShift(unsigned int time);
   void setMaxHoursPerWeek(unsigned int time);
   void setRestTimeBetweenShifts(unsigned int time);
 
-  void assignShift(Shift shift);
+  void assignShift(Shift* shift);
   void listWork()const;
 
   bool isDriverFull()const;

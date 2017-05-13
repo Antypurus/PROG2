@@ -1,4 +1,5 @@
 #include "Shift.h"
+#include "Bus.h"
 
 Shift::Shift(unsigned int busLineId, unsigned int driverId, unsigned int busNumber, unsigned int startTime, unsigned int endTime){
 	this->busLineId = busLineId;
@@ -26,6 +27,12 @@ unsigned int Shift::getStartTime() const{
 
 unsigned int Shift::getEndTime() const{
   return endTime;
+}
+
+void Shift::assignBus(Bus * bus)
+{
+	this->bus = bus;
+	bus->getSchedule().push_back(this);
 }
 
 ///////////////

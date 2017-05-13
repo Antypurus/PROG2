@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include "Bus.h"
 
 class Line;
 class Driver;
@@ -23,7 +24,7 @@ public:
 
 	std::unordered_map<unsigned int, Driver>drivers;
 	std::unordered_map<unsigned int, Line>lines;
-
+	
  public:
 	 Empresa(string nome, string ficheiro_drivers, string ficheiro_linhas);
 	 ~Empresa();
@@ -48,7 +49,7 @@ public:
 	void changeDriverMaxHourShift(const unsigned int id, const unsigned int maxHours);
 	void changeDriverMaxHoursWeek(const unsigned int id, const unsigned int maxHours);
 	void changeDriverMinRestTime(const unsigned int id, const unsigned int minHours);
-	void addDriverShift(const unsigned int id, const Shift &shift);
+	void addDriverShift(const unsigned int id, const unsigned int lineID, const unsigned int shiftNumber);
 	std::vector<Driver> getNotFullDrivers()const;
 	//void changeDriverID(const unsigned int initId, const unsigned int afterID);
 	void listDriverWork(const unsigned int id)const;
@@ -60,4 +61,8 @@ public:
 	void editLineStop(const unsigned int lineID, const unsigned int pos, const std::string stop);
 	void changeLineFrequency(const unsigned int lineID, const unsigned int freq);
 	std::vector<Line> linesWithStop(std::string stop);
+
+	std::vector<Shift*> getPeriodsWithNoDriver()const;
+	unsigned int busesInALine(const unsigned int lineId);
+	Bus getBus(const unsigned int lineId, const unsigned int busNumber);
 };

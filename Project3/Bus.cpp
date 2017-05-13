@@ -22,7 +22,7 @@ unsigned int Bus::getLineId() const{
   return lineId;
 }
 
-vector<Shift> Bus::getSchedule() const{
+vector<Shift*> Bus::getSchedule() const{
   return schedule;
 }
 
