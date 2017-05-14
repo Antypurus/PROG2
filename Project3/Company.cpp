@@ -675,3 +675,30 @@ int Empresa::isAfter(const unsigned int lineID, const std::string ref, const std
 
 	return -1;
 }
+
+std::vector<std::string> Empresa::getRoute(const std::string start, const std::string end) const
+{
+	std::vector<std::string>send;
+	for (auto it = this->lines.begin();it != this->lines.end();++it) {
+		if (this->containStartAndFinish(it->first, start, end)) {
+			send.push_back(("Line:" + it->first));
+		}
+
+		for (auto ite = this->lines.begin();ite != this->lines.end();++ite) {
+			if (it->first != ite->first) {
+				std::string ref;
+				if (this->hasSharedStop(it->first, ite->first,ref)) {
+					if (this->containStartAndFinish(it->first, ite->first, start, end)) {
+						std::string send_ = "Line:" + it->first;
+						send_ = send_ + " Line:";
+						send_ = send_ + to_string(ite->first);
+						send.push_back((send_));
+					}
+				}
+
+			}
+		}
+
+	}
+	return send;
+}

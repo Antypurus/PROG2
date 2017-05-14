@@ -72,4 +72,7 @@ private:
 	bool hasSharedStop(const unsigned int lineID1,const unsigned int lineID2,std::string &res)const;
 	int isBefore(const unsigned int lineID, const std::string ref, const std::string dest)const;
 	int isAfter(const unsigned int lineID, const std::string ref, const std::string dest)const;
+
+public:
+	std::vector<std::string> getRoute(const std::string start, const std::string end)const;
 };
