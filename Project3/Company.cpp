@@ -521,3 +521,157 @@ Bus Empresa::getBus(const unsigned int lineId, const unsigned int busNumber)
 	bus = this->lines[lineId].getBuses()[busNumber];
 	return bus;
 }
+
+bool Empresa::containStartAndFinish(const unsigned int lineID, const std::string start, const std::string end) const
+{
+	if (start == end) {
+		printf("The Start Must Not Be The Same As The End\n");
+		return false;
+	}
+
+	if (!this->doesLineExist(lineID)) {
+		printf("There is no line with this id\n");
+		return false;
+	}
+
+	bool hasStart = false;
+	bool hasEnd = false;
+
+	std::vector<std::string>check = this->lines.at(lineID).getBusStops();
+
+	for (std::vector<std::string>::const_iterator it = check.begin();it != check.end();++it) {
+		if (*it == start) {
+			hasStart = true;
+		}
+		if (*it == end) {
+			hasEnd = true;
+		}
+	}
+
+	return (hasEnd && hasStart);
+}
+
+bool Empresa::containStartAndFinish(const unsigned int lineID1, const unsigned int lineID2, const std::string start, const std::string end) const
+{
+	if (start == end) {
+		printf("The Start Must Not Be The Same As The End\n");
+		return false;
+	}
+
+	if (!this->doesLineExist(lineID1)) {
+		printf("There is no line with this id:%u\n",lineID1);
+		return false;
+	}
+
+	if (!this->doesLineExist(lineID2)) {
+		printf("There is no line with this id:%u\n",lineID2);
+		return false;
+	}
+
+	bool hasStart = false;
+	bool hasEnd = false;
+
+	std::vector<std::string>v1 = this->lines.at(lineID1).getBusStops();
+	std::vector<std::string>v2 = this->lines.at(lineID2).getBusStops();
+
+	for (std::vector<std::string>::const_iterator it = v1.begin();it != v1.end();++it) {
+		if (*it == start) {
+			hasStart = true;
+			break;
+		}
+		if (*it == end) {
+			hasEnd = true;
+			break;
+		}
+	}
+
+	for (std::vector<std::string>::const_iterator it = v2.begin();it != v2.end();++it) {
+		if (*it == start) {
+			hasStart = true;
+			break;
+		}
+		if (*it == end) {
+			hasEnd = true;
+			break;
+		}
+	}
+
+	return (hasStart && hasEnd);
+}
+
+bool Empresa::hasSharedStop(const unsigned int lineID1, const unsigned int lineID2,std::string &res) const
+{
+	bool hasShared = false;
+
+	if (!this->doesLineExist(lineID1)) {
+		printf("There is no line with this id:%u\n", lineID1);
+		return false;
+	}
+
+	if (!this->doesLineExist(lineID2)) {
+		printf("There is no line with this id:%u\n", lineID2);
+		return false;
+	}
+
+	std::vector < std::string > v1 = this->lines.at(lineID1).getBusStops();
+	std::vector < std::string > v2 = this->lines.at(lineID2).getBusStops();
+
+	for (auto it = v1.begin();it != v1.end();++it) {
+		for (auto ite = v2.begin();it != v2.end();++ite) {
+			if (*ite == *it) {
+				res = *it;
+				return true;
+			}
+		}
+	}
+
+	return hasShared;
+}
+
+int Empresa::isBefore(const unsigned int lineID, const std::string ref,const std::string dest) const
+{
+	if (!this->doesLineExist(lineID)) {
+		printf("There is no line with this id:%u\n", lineID);
+		return -1;
+	}
+	std::vector<std::string> check = this->lines.at(lineID).getBusStops();
+	int found = 0;
+	for (int i = 0;i < check.size();++i) {
+		if (check[i] == ref) {
+			found = i;
+			break;
+		}
+	}
+
+	for (int i = found;i >= 0;--i) {
+		if (check[i]==dest) {
+			return i;
+		}
+	}
+
+	return -1;
+}
+
+int Empresa::isAfter(const unsigned int lineID, const std::string ref, const std::string dest) const
+{
+	if (!this->doesLineExist(lineID)) {
+		printf("There is no line with this id:%u\n", lineID);
+		return -1;
+	}
+	std::vector<std::string> check = this->lines.at(lineID).getBusStops();
+	int found = 0;
+	for (int i = 0;i < check.size();++i) {
+		if (check[i] == ref) {
+			found = i;
+			break;
+		}
+	}
+
+	for (int i = found;i <check.size();++i) {
+		if (check[i] == dest) {
+			return i;
+		}
+	}
+
+	return -1;
+}
