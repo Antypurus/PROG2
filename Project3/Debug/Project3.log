@@ -1,3 +1,14 @@
 ﻿  Company.cpp
-  Project3.vcxproj -> C:\Users\posto\Source\Repos\PROG2\Debug\Project3.exe
-  Project3.vcxproj -> C:\Users\posto\Source\Repos\PROG2\Debug\Project3.pdb (Partial PDB)
+c:\users\craky\source\repos\prog2\project3\company.cpp(640): warning C4018: '<': signed/unsigned mismatch
+c:\users\craky\source\repos\prog2\project3\company.cpp(664): warning C4018: '<': signed/unsigned mismatch
+c:\users\craky\source\repos\prog2\project3\company.cpp(671): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  main.cpp
+c:\users\craky\source\repos\prog2\project3\main.cpp(198): warning C4018: '<': signed/unsigned mismatch
+c:\users\craky\source\repos\prog2\project3\main.cpp(519): warning C4018: '<': signed/unsigned mismatch
+c:\users\craky\source\repos\prog2\project3\main.cpp(560): warning C4018: '<': signed/unsigned mismatch
+  Line.cpp
+  Generating Code...
+  Project3.vcxproj -> C:\Users\craky\Source\Repos\PROG2\Debug\Project3.exe
+  Project3.vcxproj -> C:\Users\craky\Source\Repos\PROG2\Debug\Project3.pdb (Partial PDB)

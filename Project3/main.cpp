@@ -456,6 +456,114 @@ void LineMenu(Empresa &empresa) {
 	}
 }
 
+void shiftMenu(Empresa &empresa) {
+	int op = 0;
+	while (op == 0) {
+		system("cls");
+		std::cout << "-----------------------------------" << std::endl;
+		std::cout << "|      Shift Menu                 |" << std::endl;
+		std::cout << "-----------------------------------" << std::endl;
+		std::cout << "|     1-Assign Shift              |" << std::endl;
+		std::cout << "|     2-List Shifts With No Driver|" << std::endl;
+		std::cout << "|     3-List All Shifts           |" << std::endl;
+		std::cout << "|     4-Exit                      |" << std::endl;
+		std::cout << "-----------------------------------" << std::endl;
+
+		std::stringstream option;
+		std::string help;
+		help.clear();
+		std::cout << "Option:";
+		std::cin >> help;
+		option.clear();
+		option.str(help);
+
+		option >> op;
+
+		switch (op) {
+		case 1:
+		{
+			system("cls");
+			int id = 0, pos = 0, dID = 0;
+			help.clear();
+			std::cout << "Line ID:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> id;
+
+			help.clear();
+			std::cout << "Shift Number:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> pos;
+
+			help.clear();
+			std::cout << "Driver ID:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> dID;
+
+			empresa.addDriverShift(dID, id, pos);
+			system("pause");
+			op = 0;
+			break;
+		}
+		case 2:
+		{
+			auto vec = empresa.getPeriodsWithNoDriver();
+			for (int i = 0; i < vec.size(); ++i) {
+				std::cout << vec[i] << std::endl;
+			}
+			system("pause");
+			op = 0;
+			break;
+		}
+		case 3:
+		{
+			for (auto it = empresa.lines.begin(); it != empresa.lines.end(); ++it) {
+				std::vector<Shift*>shifts = it->second.getShifts();
+				for (auto ite = shifts.begin(); ite != shifts.end(); ++ite) {
+					std::cout << *ite << std::endl;
+				}
+			}
+			system("pause");
+			op = 0;
+			break;
+		}
+		case 4:
+			return;
+		default:
+			op = 0;
+			break;
+		}
+
+	}
+}
+
+void routeCalculator(Empresa& empresa) {
+	system("cls");
+	cout << "Starting Point:";
+	string start = "";
+	cin.ignore();
+	getline(cin, start);
+	cout << "Ending Point:";
+	string end = "";
+	cin.ignore();
+	getline(cin, end);
+
+	vector<string>check = empresa.getRoute(start, end);
+	for (int i = 0; i < check.size(); ++i) {
+		cout << check[i] << endl;
+	}
+	system("pause");
+	return;
+}
+
 int main(){
 	std::string driverFilename = "motoristas.txt";
 	std::string lineFilename = "linhas.txt";
@@ -500,11 +608,13 @@ int main(){
 		}
 		case 3:
 		{
+			shiftMenu(em);
 			op = 0;
 			break;
 		}
 		case 4:
 		{
+			routeCalculator(em);
 			op = 0;
 			break;
 		}

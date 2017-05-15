@@ -19,8 +19,9 @@ private:
   int frequencia;
   unsigned int nAutocarros;
   unsigned int nShift = 0;
-
+public:
   std::vector<Shift*>shifts;
+private:
   std::vector<Bus>buses;
  public:
   Line(unsigned int id);

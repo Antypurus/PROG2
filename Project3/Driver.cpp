@@ -61,6 +61,7 @@ void Driver::assignShift(Shift* shift)
 {
 	unsigned int delta = 0;
 	delta = shift->getEndTime() - shift->getStartTime();
+	printf("delta:%d\n", delta);
 	if (delta > this->maxHours*60) {
 		printf("This Shift Is Too Long For this Driver\n");
 		return;

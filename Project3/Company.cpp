@@ -488,7 +488,7 @@ std::vector<Shift*> Empresa::getPeriodsWithNoDriver() const
 	//usage but writhing auto it much faster than writhings
 	//unordered_map<unsigned itn,Line>::const_iterator
 	for (auto it = this->lines.begin();it != this->lines.end();++it) {
-		for (auto ite = it->second.getShifts().begin();ite != it->second.getShifts().end();++ite) {
+		for (auto ite = it->second.shifts.begin();ite != it->second.shifts.end();++ite) {
 			if ((*ite)->getDriverId() == 0) {
 				shifts.push_back(*ite);
 			}
@@ -618,7 +618,7 @@ bool Empresa::hasSharedStop(const unsigned int lineID1, const unsigned int lineI
 	std::vector < std::string > v2 = this->lines.at(lineID2).getBusStops();
 
 	for (auto it = v1.begin();it != v1.end();++it) {
-		for (auto ite = v2.begin();it != v2.end();++ite) {
+		for (auto ite = v2.begin();ite != v2.end();++ite) {
 			if (*ite == *it) {
 				res = *it;
 				return true;
