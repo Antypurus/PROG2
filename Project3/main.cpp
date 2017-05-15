@@ -56,7 +56,7 @@ void DriverMenu(Empresa &empresa) {
 			op = 0;
 			break;
 		}
-		case 3://edit driver name
+		case 3://edit driver name - done
 		{
 			system("cls");
 			int id = 0;
@@ -75,44 +75,62 @@ void DriverMenu(Empresa &empresa) {
 			op = 0;
 			break;
 		}
-		case 4://edit max shift
+		case 4://edit max shift - done
 		{
 			system("cls");
 			int id = 0;
+			int mt = 0;
 			option.clear();
 			std::cout << "Driver ID:";
 			std::cin >> help;
 			option.str(help);
 			option >> id;
-			empresa.removeDriver(id);
+			std::cout << "New Max Time Per Shift:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> mt;
+			empresa.changeDriverMaxHourShift(id, mt);
 			system("pause");
 			op = 0;
 			break;
 		}
-		case 5://edit max week
+		case 5://edit max week - done
 		{
 			system("cls");
 			int id = 0;
+			int mt = 0;
 			option.clear();
 			std::cout << "Driver ID:";
 			std::cin >> help;
 			option.str(help);
 			option >> id;
-			empresa.removeDriver(id);
+			std::cout << "New Max Time Per Week:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> mt;
+			empresa.changeDriverMaxHoursWeek(id, mt);
 			system("pause");
 			op = 0;
 			break;
 		}
-		case 6://edit min rest
+		case 6://edit min rest - done
 		{
 			system("cls");
 			int id = 0;
+			int mt = 0;
 			option.clear();
 			std::cout << "Driver ID:";
 			std::cin >> help;
 			option.str(help);
 			option >> id;
-			empresa.removeDriver(id);
+			std::cout << "New Min Time Between Shifts:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> mt;
+			empresa.changeDriverMinRestTime(id, mt);
 			system("pause");
 			op = 0;
 			break;

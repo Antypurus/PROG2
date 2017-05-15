@@ -204,6 +204,7 @@ void Empresa::saveAllLines()//NEed to Fix This ASAP
 				file << help.getTimings()[i] << " , ";
 			}
 			file << help.getTimings()[help.getTimings().size() - 1];
+			file << '\n';
 		}
 	}
 	else {
@@ -281,7 +282,7 @@ void Empresa::changeDriverMaxHourShift(const unsigned int id, const unsigned int
 		printf("There is no driver with this id\n");
 		return;
 	}
-	this->drivers[id].setMaxHoursPerShift(id);
+	this->drivers[id].setMaxHoursPerShift(maxHours);
 	this->setShouldUpdate();
 	return;
 }
