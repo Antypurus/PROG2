@@ -36,38 +36,88 @@ void DriverMenu(Empresa &empresa) {
 		option >> op;
 
 		switch (op) {
-		case 1:
+		case 1://add Driver
 		{
 			
 			op = 0;
 			break;
 		}
-		case 2:
+		case 2://delete driver - done
 		{
+			system("cls");
+			int id = 0;
+			option.clear();
+			std::cout << "Driver ID:";
+			std::cin >> help;
+			option.str(help);
+			option >> id;
+			empresa.removeDriver(id);
+			system("pause");
 			op = 0;
 			break;
 		}
-		case 3:
+		case 3://edit driver name
 		{
+			system("cls");
+			int id = 0;
+			option.clear();
+			std::cout << "Driver ID:";
+			std::cin >> help;
+			option.str(help);
+			option >> id;
+			std::cout << "New Driver Name:";
+			cin.ignore();
+			std::getline(std::cin, help);
+			empresa.changeDriverName(id, help);
+			help.clear();
+			system("pause");
+
 			op = 0;
 			break;
 		}
-		case 4:
+		case 4://edit max shift
 		{
+			system("cls");
+			int id = 0;
+			option.clear();
+			std::cout << "Driver ID:";
+			std::cin >> help;
+			option.str(help);
+			option >> id;
+			empresa.removeDriver(id);
+			system("pause");
 			op = 0;
 			break;
 		}
-		case 5:
+		case 5://edit max week
 		{
+			system("cls");
+			int id = 0;
+			option.clear();
+			std::cout << "Driver ID:";
+			std::cin >> help;
+			option.str(help);
+			option >> id;
+			empresa.removeDriver(id);
+			system("pause");
 			op = 0;
 			break;
 		}
-		case 6:
+		case 6://edit min rest
 		{
+			system("cls");
+			int id = 0;
+			option.clear();
+			std::cout << "Driver ID:";
+			std::cin >> help;
+			option.str(help);
+			option >> id;
+			empresa.removeDriver(id);
+			system("pause");
 			op = 0;
 			break;
 		}
-		case 7:
+		case 7://list all drivers - done
 		{
 			system("cls");
 			for (auto it = empresa.drivers.begin(); it != empresa.drivers.end(); ++it) {
@@ -77,17 +127,34 @@ void DriverMenu(Empresa &empresa) {
 			op = 0;
 			break;
 		}
-		case 8:
+		case 8://see driver work - done
 		{
+			system("cls");
+			int id = 0;
+			option.clear();
+			std::cout << "Driver ID:";
+			std::cin >> help;
+			option.str(help);
+			option >> id;
+			system("cls");
+			empresa.listDriverWork(id);
+			system("pause");
+
 			op = 0;
 			break;
 		}
-		case 9:
+		case 9://list drivers not full - done
 		{
+			system("cls");
+			std::vector<Driver>dr = empresa.getNotFullDrivers();
+			for (int i = 0; i < dr.size(); ++i) {
+				std::cout << dr[i] << std::endl;
+			}
+			system("pause");
 			op = 0;
 			break;
 		}
-		case 10:
+		case 10: //exit - done
 			return;
 		default:
 			op = 0;
@@ -210,6 +277,7 @@ int main(){
 		}
 		case 5:
 		{
+			em.~Empresa();
 			exit(0);
 			break;
 		}

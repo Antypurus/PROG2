@@ -23,7 +23,7 @@ Empresa::~Empresa()
 		this->saveAllDrivers();
 		this->saveAllLines();
 		printf("File Saving Sequence Finished \n");
-		return;
+		this->shouldUpdate = false;
 	}
 	else {
 		printf("Exiting , no files required saving\n");
@@ -104,10 +104,10 @@ void Empresa::saveAllDrivers()
 	if (file.is_open()) {
 		for (auto it = this->drivers.begin();it != this->drivers.end();++it) {
 			help = it->second;
-			file << help.getId() << " ; ";
-			file << help.getName() << " ; ";
-			file << help.getShiftMaxDuration() << " ; ";
-			file << help.getMaxWeekWorkingTime() << " ; ";
+			file << help.getId() << ";";
+			file << help.getName() << ";";
+			file << help.getShiftMaxDuration() << ";";
+			file << help.getMaxWeekWorkingTime() << ";";
 			file << help.getMinRestTime() << "\n";
 		}
 	}
@@ -187,19 +187,19 @@ void Empresa::loadAllLines(string filename) {
 	file.close();
 }
 
-void Empresa::saveAllLines()
+void Empresa::saveAllLines()//NEed to Fix This ASAP
 {
 	ofstream file(this->fileFile);
 	if (file.is_open()) {
-		for (auto it = this->lines.begin();it != this->lines.end();++it) {
+		std::unordered_map<unsigned int, Line>lines = this->lines;
+		for (auto it = lines.begin();it != lines.end();++it) {
 			Line help = it->second;
 			file << help.getId() << " ; ";
 			file << help.getFreq() << " ; ";
-			for (unsigned int i = 0;i < (help.getBusStops().size()-1);++it) {
+			for (unsigned int i = 0;i < (help.getBusStops().size()-1);++i) {
 				file << help.getBusStops()[i] << " , ";
 			}
 			file << help.getBusStops()[help.getBusStops().size() - 1] << " ; ";
-
 			for (unsigned int i = 0;i < (help.getTimings().size() - 1);++i) {
 				file << help.getTimings()[i] << " , ";
 			}
