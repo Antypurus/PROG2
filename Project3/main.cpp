@@ -7,32 +7,147 @@
 
 
 void DriverMenu(Empresa &empresa) {
-	system("cls");
-	std::cout << "----------------------------------------------" << std::endl;
-	std::cout << "|      Line Menu                             |" << std::endl;
-	std::cout << "----------------------------------------------" << std::endl;
-	std::cout << "|     1-Add Driver                           |" << std::endl;
-	std::cout << "|     2-Remove Driver                        |" << std::endl;
-	std::cout << "|     3-Edit Driver                          |" << std::endl;
-	std::cout << "|     4-See All Drivers                      |" << std::endl;
-	std::cout << "|     5-See Driver Work                      |" << std::endl;
-	std::cout << "|     6-List Drivers With Incomplete Service |" << std::endl;
-	std::cout << "|     7-Add Shift To Driver                  |" << std::endl;
-	std::cout << "----------------------------------------------" << std::endl;
-	system("pause");
+	int op = 0;
+	while (op == 0) {
+		system("cls");
+		std::cout << "----------------------------------------------" << std::endl;
+		std::cout << "|      Line Menu                             |" << std::endl;
+		std::cout << "----------------------------------------------" << std::endl;
+		std::cout << "|     1-Add Driver                           |" << std::endl;
+		std::cout << "|     2-Remove Driver                        |" << std::endl;
+		std::cout << "|     3-Edit Driver Name                     |" << std::endl;
+		std::cout << "|     4-Edit Driver Max Time Per Shift       |" << std::endl;
+		std::cout << "|     5-Edit Driver Max Time Per Week        |" << std::endl;
+		std::cout << "|     6-Edit Driver Min Rest Between Shifts  |" << std::endl;
+		std::cout << "|     7-See All Drivers                      |" << std::endl;
+		std::cout << "|     8-See Driver Work                      |" << std::endl;
+		std::cout << "|     9-List Drivers With Incomplete Service |" << std::endl;
+		std::cout << "|     10-Back                                |" << std::endl;
+		std::cout << "----------------------------------------------" << std::endl;
+
+		std::stringstream option;
+		std::string help;
+		help.clear();
+		std::cout << "Option:";
+		std::cin >> help;
+		option.clear();
+		option.str(help);
+
+		option >> op;
+
+		switch (op) {
+		case 1:
+		{
+			op = 0;
+			break;
+		}
+		case 2:
+		{
+			op = 0;
+			break;
+		}
+		case 3:
+		{
+			op = 0;
+			break;
+		}
+		case 4:
+		{
+			op = 0;
+			break;
+		}
+		case 5:
+		{
+			op = 0;
+			break;
+		}
+		case 6:
+		{
+			op = 0;
+			break;
+		}
+		case 7:
+		{
+			op = 0;
+			break;
+		}
+		case 8:
+		{
+			op = 0;
+			break;
+		}
+		case 9:
+		{
+			op = 0;
+			break;
+		}
+		case 10:
+			return;
+		default:
+			op = 0;
+			break;
+		}
+	}
 }
 
 void LineMenu(Empresa &empresa) {
-	system("cls");
-	std::cout << "-------------------------" << std::endl;
-	std::cout << "|      Driver Menu      |" << std::endl;
-	std::cout << "-------------------------" << std::endl;
-	std::cout << "|      Driver Menu      |" << std::endl;
-	std::cout << "|      Driver Menu      |" << std::endl;
-	std::cout << "|      Driver Menu      |" << std::endl;
-	std::cout << "|      Driver Menu      |" << std::endl;
-	std::cout << "|      Driver Menu      |" << std::endl;
-	std::cout << "-------------------------" << std::endl;
+	int op = 0;
+	while (op == 0) {
+		system("cls");
+		std::cout << "---------------------------------------" << std::endl;
+		std::cout << "|              Line Menu              |" << std::endl;
+		std::cout << "---------------------------------------" << std::endl;
+		std::cout << "|      1-Inset Bus Stop At End        |" << std::endl;
+		std::cout << "|      2-Inset Bus Stop At Beggining  |" << std::endl;
+		std::cout << "|      3-Inset Bus Stop In The Middle |" << std::endl;
+		std::cout << "|      4-Change Line Frequency        |" << std::endl;
+		std::cout << "|      5-List Bus Info                |" << std::endl;
+		std::cout << "|      6-Back                         |" << std::endl;
+		std::cout << "---------------------------------------" << std::endl;
+
+		std::stringstream option;
+		std::string help;
+		help.clear();
+		std::cout << "Option:";
+		std::cin >> help;
+		option.clear();
+		option.str(help);
+
+		option >> op;
+
+		switch (op) {
+		case 1:
+		{
+			op = 0;
+			break;
+		}
+		case 2:
+		{
+			op = 0;
+			break;
+		}
+		case 3:
+		{
+			op = 0;
+			break;
+		}
+		case 4:
+		{
+			op = 0;
+			break;
+		}
+		case 5:
+		{
+			op = 0;
+			break;
+		}
+		case 6:
+			return;
+		default:
+			op = 0;
+			break;
+		}
+	}
 }
 
 int main(){
@@ -49,14 +164,15 @@ int main(){
 		std::cout << "-------------------------" << std::endl;
 		std::cout << "|     1-Driver Menu     |" << std::endl;
 		std::cout << "|     2-Line Menu       |" << std::endl;
-		std::cout << "|      Driver Menu      |" << std::endl;
-		std::cout << "|      Driver Menu      |" << std::endl;
-		std::cout << "|      Driver Menu      |" << std::endl;
+		std::cout << "|     3-Shift Menu      |" << std::endl;
+		std::cout << "|     4-Route Calculator|" << std::endl;
+		std::cout << "|     5-Exit            |" << std::endl;
 		std::cout << "-------------------------" << std::endl;
 
 		std::stringstream option;
 		std::string help;
 		help.clear();
+		std::cout << "Option:";
 		std::cin >> help;
 		option.clear();
 		option.str(help);
@@ -72,9 +188,28 @@ int main(){
 		}
 		case 2:
 		{
+			LineMenu(em);
+			op = 0;
 			break;
 		}
-		default:break;
+		case 3:
+		{
+			op = 0;
+			break;
+		}
+		case 4:
+		{
+			op = 0;
+			break;
+		}
+		case 5:
+		{
+			exit(0);
+			break;
+		}
+		default:
+			op = 0;
+			break;
 		}
 	}
 	system("pause");
