@@ -36,9 +36,39 @@ void DriverMenu(Empresa &empresa) {
 		option >> op;
 
 		switch (op) {
-		case 1://add Driver
+		case 1://add Driver - done
 		{
-			
+			system("cls");
+			int id = 0;
+			string name = "";
+			int ms = 0;//max shift;
+			int mw = 0;//max week;
+			int mr = 0;//min rest;
+			option.clear();
+			std::cout << "Driver ID:";
+			std::cin >> help;
+			option.str(help);
+			option >> id;
+			std::cout << "Driver Max Shift Duration:";
+			option.clear();
+			std::cin >> help;
+			option.str(help);
+			option >> ms;
+			option.clear();
+			std::cout << "Driver Max Week Work Time:";
+			std::cin >> help;
+			option.str(help);
+			option >> mw;
+			option.clear();
+			std::cout << "Driver Min Rest Time Bewtween shifts:";
+			std::cin >> help;
+			option.str(help);
+			option >> mr;
+			std::cout << "Driver Name:";
+			cin.ignore();
+			std::getline(std::cin, help);
+			empresa.addDriver(Driver(help, id, ms, mw, mr));
+			help.clear();
 			op = 0;
 			break;
 		}
@@ -193,7 +223,10 @@ void LineMenu(Empresa &empresa) {
 		std::cout << "|      3-Inset Bus Stop In The Middle |" << std::endl;
 		std::cout << "|      4-Change Line Frequency        |" << std::endl;
 		std::cout << "|      5-List Bus Info                |" << std::endl;
-		std::cout << "|      6-Back                         |" << std::endl;
+		std::cout << "|      6-List All Lines               |" << std::endl;
+		std::cout << "|      7-Edit Stop                    |" << std::endl;
+		std::cout << "|      8-Edit Time Between Stops		|" << std::endl;
+		std::cout << "|      9-Back                         |" << std::endl;
 		std::cout << "---------------------------------------" << std::endl;
 
 		std::stringstream option;
@@ -207,32 +240,145 @@ void LineMenu(Empresa &empresa) {
 		option >> op;
 
 		switch (op) {
-		case 1:
+		case 1://done
+		{
+			int id=0, time=0;
+			std::string name;
+			help.clear();
+			std::cout << "Line ID:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> id;
+
+			std::cout << "Stop Name:";
+			cin.ignore();
+			std::getline(std::cin, name);
+
+			help.clear();
+			std::cout << "Time Since Last Stop:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> time;
+
+			empresa.addBusStop(id, name, time);
+			system("pause");
+			op = 0;
+			break;
+		}
+		case 2://done
+		{
+			int id = 0, time = 0;
+			std::string name;
+			help.clear();
+			std::cout << "Line ID:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> id;
+
+			std::cout << "Stop Name:";
+			cin.ignore();
+			std::getline(std::cin, name);
+
+			help.clear();
+			std::cout << "Time To Next Stop:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> time;
+
+			empresa.addBusStop(id, 1, name, time);
+			system("pause");
+			op = 0;
+			break;
+		}
+		case 3://done
+		{
+			int id = 0, time = 0,pos = 0;
+			std::string name;
+			help.clear();
+			std::cout << "Line ID:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> id;
+
+			std::cout << "Stop Name:";
+			cin.ignore();
+			std::getline(std::cin, name);
+
+			help.clear();
+			std::cout << "Time To Next Stop:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> time;
+
+			help.clear();
+			std::cout << "Position To Add In:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+			option >> pos;
+
+			empresa.addBusStop(id, pos, name, time);
+			system("pause");
+			op = 0;
+			break;
+		}
+		case 4://change Line Frequency
+		{
+			system("cls");
+			int id = 0,freq = 0;
+			help.clear();
+			std::cout << "Line ID:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> id;
+
+			help.clear();
+			std::cout << "New Frequency:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> freq;
+
+			empresa.changeLineFrequency(id, freq);
+			system("pause");
+			op = 0;
+			break;
+		}
+		case 5://List Bus Info
 		{
 			op = 0;
 			break;
 		}
-		case 2:
+		case 6://done
+		{
+			system("cls");
+			for (auto it = empresa.lines.begin(); it != empresa.lines.end(); ++it) {
+				empresa.listLineInfo(it->first);
+			}
+			system("pause");
+			op = 0;
+			break;
+		}
+		case 7://edit stop
 		{
 			op = 0;
 			break;
 		}
-		case 3:
+		case 8://edit time between stops
 		{
 			op = 0;
 			break;
 		}
-		case 4:
-		{
-			op = 0;
-			break;
-		}
-		case 5:
-		{
-			op = 0;
-			break;
-		}
-		case 6:
+		case 9:
 			return;
 		default:
 			op = 0;

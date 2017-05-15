@@ -194,14 +194,14 @@ void Empresa::saveAllLines()//NEed to Fix This ASAP
 		std::unordered_map<unsigned int, Line>lines = this->lines;
 		for (auto it = lines.begin();it != lines.end();++it) {
 			Line help = it->second;
-			file << help.getId() << " ; ";
-			file << help.getFreq() << " ; ";
+			file << help.getId() << ";";
+			file << help.getFreq() << ";";
 			for (unsigned int i = 0;i < (help.getBusStops().size()-1);++i) {
-				file << help.getBusStops()[i] << " , ";
+				file << help.getBusStops()[i] << ",";
 			}
-			file << help.getBusStops()[help.getBusStops().size() - 1] << " ; ";
+			file << help.getBusStops()[help.getBusStops().size() - 1] << ";";
 			for (unsigned int i = 0;i < (help.getTimings().size() - 1);++i) {
-				file << help.getTimings()[i] << " , ";
+				file << help.getTimings()[i] << ",";
 			}
 			file << help.getTimings()[help.getTimings().size() - 1];
 			file << '\n';
@@ -398,14 +398,14 @@ void Empresa::addBusStop(const unsigned int lineID, const unsigned int pos, cons
 		return;
 	}
 	if (pos == 1) {
-		this->lines[lineID].getBusStops().insert(this->lines[lineID].getBusStops().begin(), stop);
-		this->lines[lineID].getTimings().insert(this->lines[lineID].getTimings().begin(), timeLastStop);
+		this->lines[lineID].busStopList.insert(this->lines[lineID].busStopList.begin(), stop);
+		this->lines[lineID].timesList.insert(this->lines[lineID].timesList.begin(), timeLastStop);
 		this->setShouldUpdate();
 		return;
 	}
 	else {
-		this->lines[lineID].getBusStops().insert(this->lines[lineID].getBusStops().begin() + (pos - 1), stop);
-		this->lines[lineID].getTimings().insert(this->lines[lineID].getTimings().begin() + (pos - 1), timeLastStop);
+		this->lines[lineID].busStopList.insert(this->lines[lineID].busStopList.begin() + (pos - 1), stop);
+		this->lines[lineID].timesList.insert(this->lines[lineID].timesList.begin() + (pos - 1), timeLastStop);
 		this->setShouldUpdate();
 		return;
 	}
@@ -426,7 +426,7 @@ void Empresa::editLineTime(const unsigned int lineID, const unsigned int pos, co
 		printf("This Time value Is Not Valid\n");
 		return;
 	}
-	this->lines[lineID].getTimings()[pos - 1] = newTime;
+	this->lines[lineID].timesList[pos - 1] = newTime;
 	this->setShouldUpdate();
 	return;
 }
@@ -445,7 +445,7 @@ void Empresa::editLineStop(const unsigned int lineID, const unsigned int pos, co
 		printf("This position in the list does not exist\n");
 		return;
 	}
-	this->lines[lineID].getBusStops()[pos - 1] = stop;
+	this->lines[lineID].busStopList[pos - 1] = stop;
 	this->setShouldUpdate();
 	return;
 }

@@ -12,8 +12,10 @@ using namespace std;
 class Line{
  private:
   unsigned int id;
+public:
   vector<string> busStopList;
   vector<int> timesList;
+private:
   int frequencia;
   unsigned int nAutocarros;
   unsigned int nShift = 0;
@@ -27,8 +29,8 @@ class Line{
   }
   // get methods
   unsigned int getId() const;
-  vector<string> getBusStops() const;
-  vector<int> getTimings() const;
+  vector<string> getBusStops()const ;
+  vector<int> getTimings()const ;
   int getFreq()const;
   
   vector<Shift*> getShifts()const{

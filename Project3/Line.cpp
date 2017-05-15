@@ -13,11 +13,11 @@ unsigned int Line::getId() const{
   return id;
 }
 
-vector<string> Line::getBusStops() const{
+vector<string> Line::getBusStops()const {
   return busStopList;
 }
 
-vector<int> Line::getTimings() const{
+vector<int> Line::getTimings()const {
   return timesList;
 }
 
