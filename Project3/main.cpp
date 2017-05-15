@@ -353,7 +353,7 @@ void LineMenu(Empresa &empresa) {
 			op = 0;
 			break;
 		}
-		case 5://List Bus Info - not working
+		case 5://List Bus Info - done
 		{
 			system("cls");
 			int id = 0, pos = 0;
@@ -389,11 +389,61 @@ void LineMenu(Empresa &empresa) {
 		}
 		case 7://edit stop
 		{
+			int id = 0,pos =0;
+			string name = "";
+			help.clear();
+			std::cout << "Line ID:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> id;
+
+			help.clear();
+			std::cout << "Position to Edit:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> pos;
+
+			std::cout << "New Stop Name:";
+			cin.ignore();
+			std::getline(cin, name);
+
+			empresa.editLineStop(id, pos, name);
+
 			op = 0;
 			break;
 		}
 		case 8://edit time between stops
 		{
+			int id = 0, pos = 0, time =0;
+			help.clear();
+			std::cout << "Line ID:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> id;
+
+			help.clear();
+			std::cout << "Position to Edit:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> pos;
+
+			help.clear();
+			std::cout << "New Time Value:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> time;
+
+			empresa.editLineTime(id, pos, time);
 			op = 0;
 			break;
 		}
