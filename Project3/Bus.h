@@ -13,6 +13,7 @@ class Bus{
   unsigned int orderInLine;
   unsigned int driverId;
   unsigned int lineId;
+public:
   vector<Shift*> schedule;
  public:
   Bus(unsigned int id, unsigned int driver, unsigned int line);
@@ -28,6 +29,7 @@ class Bus{
   // set methods
     unsigned int setDriverId(int ID);
     unsigned int setLineId(int ID);
+	friend ostream& operator<<(ostream& os, const Bus& bus);
   // other methods
 
 };

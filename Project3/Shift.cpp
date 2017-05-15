@@ -32,7 +32,7 @@ unsigned int Shift::getEndTime() const{
 void Shift::assignBus(Bus * bus)
 {
 	this->bus = bus;
-	bus->getSchedule().push_back(this);
+	bus->schedule.push_back(this);
 }
 
 ///////////////
@@ -66,8 +66,8 @@ unsigned int Shift::setEndTime(unsigned int endTime){
 
 ostream & operator<<(ostream &os, const Shift shift)
 {
-	os << "Line ID:" << shift.getBusLineId();
-	os << " Bus ID:" << shift.getBusOrderNumber();
+	//os << "Line ID:" << shift.getBusLineId();
+	//os << " Bus ID:" << shift.getBusOrderNumber();
 	os << " Shift start Time:" << shift.getStartTime();
 	os << " Shift End Time:" << shift.getEndTime();
 	return os;

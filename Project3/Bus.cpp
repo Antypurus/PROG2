@@ -44,3 +44,16 @@ unsigned int Bus::setLineId(int ID) {
 ////////////////////////////
 // other methods
 ///////////////////////////
+
+ostream & operator<<(ostream & os, const Bus & bus)
+{
+	os << "Line ID:" << bus.getLineId() << '\n';
+	os << "Bus Order In Line:" << bus.getBusOrderInLine()<<'\n';
+	os << "Bus Shifts:" << '\n';
+	for (int i = 0; i < bus.getSchedule().size(); ++i) {
+		os << "\t Shift Start Time:" << bus.getSchedule()[i]->getStartTime() << '\n';
+		os << "\t Shift End Time:" << bus.getSchedule()[i]->getEndTime() << '\n'<<'\n';
+	}
+	os << '\n';
+	return os;
+}

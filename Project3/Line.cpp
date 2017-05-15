@@ -56,17 +56,19 @@ void Line::finalize()
 	}
 	shiftDuration--;
 	for (unsigned int i = 0;i < nAutocarros;++i) {
-		this->buses.push_back(Bus(i, 0, id));
+		this->buses.push_back(Bus(id, 0, i));
 	}
 	unsigned int nShifts = (1080 / frequencia);
-	for (unsigned int i = 0;i < 7;++i) {
+	for (unsigned int i = 1;i <= 7;++i) {
 		for (unsigned int j = 0;j < nShifts;++j) {
-			this->shifts.push_back(new Shift(id, 0, j%buses.size(), prevEndTime, prevEndTime + shiftDuration));
+			this->shifts.push_back(new Shift(id, 0, j%buses.size(), prevEndTime, (prevEndTime + shiftDuration)));
 			prevEndTime += frequencia - 1;
-			this->shifts[j]->assignBus(&(this->buses[shifts[j]->getBusOrderNumber()]));
 		}
 		prevEndTime++;
 		prevEndTime += 360;
+	}
+	for (unsigned int i = 0; i < this->shifts.size(); i++) {
+		this->shifts[i]->assignBus(&this->buses[i%this->buses.size()]);
 	}
 }
 

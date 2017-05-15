@@ -328,7 +328,7 @@ void LineMenu(Empresa &empresa) {
 			op = 0;
 			break;
 		}
-		case 4://change Line Frequency
+		case 4://change Line Frequency - done
 		{
 			system("cls");
 			int id = 0,freq = 0;
@@ -353,8 +353,27 @@ void LineMenu(Empresa &empresa) {
 			op = 0;
 			break;
 		}
-		case 5://List Bus Info
+		case 5://List Bus Info - not working
 		{
+			system("cls");
+			int id = 0, pos = 0;
+			help.clear();
+			std::cout << "Line ID:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> id;
+			help.clear();
+			std::cout << "Bus Order Number:";
+			std::cin >> help;
+			option.clear();
+			option.str(help);
+
+			option >> pos;
+			Bus print = empresa.getBus(id, pos);
+			std::cout << print << std::endl;;
+			system("pause");
 			op = 0;
 			break;
 		}

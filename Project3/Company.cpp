@@ -516,7 +516,7 @@ Bus Empresa::getBus(const unsigned int lineId, const unsigned int busNumber)
 		return bus;
 	}
 	if (busNumber < 0 || busNumber >= this->lines[lineId].getBuses().size()) {
-		printf("There is no bus in this line with that nus number\n");
+		printf("There is no bus in this line with that Bus number\n");
 		return bus;
 	}
 	bus = this->lines[lineId].getBuses()[busNumber];
