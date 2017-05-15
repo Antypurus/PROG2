@@ -38,6 +38,7 @@ void DriverMenu(Empresa &empresa) {
 		switch (op) {
 		case 1:
 		{
+			
 			op = 0;
 			break;
 		}
@@ -68,6 +69,11 @@ void DriverMenu(Empresa &empresa) {
 		}
 		case 7:
 		{
+			system("cls");
+			for (auto it = empresa.drivers.begin(); it != empresa.drivers.end(); ++it) {
+				std::cout << it->second << std::endl;
+			}
+			system("pause");
 			op = 0;
 			break;
 		}
