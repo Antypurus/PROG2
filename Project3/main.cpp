@@ -551,12 +551,19 @@ void routeCalculator(Empresa& empresa) {
 	string start = "";
 	cin.ignore();
 	getline(cin, start);
+	cin.clear();
 	cout << "Ending Point:";
 	string end = "";
-	cin.ignore();
 	getline(cin, end);
 
 	vector<string>check = empresa.getRoute(start, end);
+
+	if (check.size() == 0) {
+		printf("Unable To Find Route\n");
+		system("pause");
+		return;
+	}
+
 	for (int i = 0; i < check.size(); ++i) {
 		cout << check[i] << endl;
 	}

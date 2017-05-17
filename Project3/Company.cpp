@@ -682,7 +682,9 @@ std::vector<std::string> Empresa::getRoute(const std::string start, const std::s
 	std::vector<std::string>send;
 	for (auto it = this->lines.begin();it != this->lines.end();++it) {
 		if (this->containStartAndFinish(it->first, start, end)) {
-			send.push_back(("Line:" + it->first));
+			std::string toSend = "Line:";
+			toSend += to_string(it->first);
+			send.push_back(toSend);
 		}
 
 		for (auto ite = this->lines.begin();ite != this->lines.end();++ite) {
