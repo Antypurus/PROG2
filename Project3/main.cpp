@@ -517,7 +517,7 @@ void shiftMenu(Empresa &empresa) {
 		{
 			auto vec = empresa.getPeriodsWithNoDriver();
 			for (int i = 0; i < vec.size(); ++i) {
-				std::cout << vec[i] << std::endl;
+				std::cout << *vec[i] << std::endl;
 			}
 			system("pause");
 			op = 0;
@@ -528,7 +528,7 @@ void shiftMenu(Empresa &empresa) {
 			for (auto it = empresa.lines.begin(); it != empresa.lines.end(); ++it) {
 				std::vector<Shift*>shifts = it->second.getShifts();
 				for (auto ite = shifts.begin(); ite != shifts.end(); ++ite) {
-					std::cout << *ite << std::endl;
+					std::cout << **ite << std::endl;
 				}
 			}
 			system("pause");
