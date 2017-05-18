@@ -692,8 +692,8 @@ std::vector<std::string> Empresa::getRoute(const std::string start, const std::s
 				std::string ref;
 				if (this->hasSharedStop(it->first, ite->first,ref)) {
 					if (this->containStartAndFinish(it->first, ite->first, start, end)) {
-						std::string send_ = "Line:" + it->first;
-						send_ = send_ + " Line:";
+						std::string send_ = "Line:" + to_string(it->first);
+						send_ = send_ + " + Line:";
 						send_ = send_ + to_string(ite->first);
 						send.push_back((send_));
 					}

@@ -1,3 +1,5 @@
-1; Antonio Manuel ;67;12345;234
-3; Joaquim Belmiro ;3;48;4
-2;Ur MOm;12;12;3
+1 ; Antonio Manuel ; 4 ; 36 ; 2
+3 ; Joaquim Belmiro ; 8 ; 48 ; 4
+2; Sara Basco ; 8 ; 48 ; 4
+4 ; Diogo Afonso ; 10 ; 58 ; 7
+5 ; Artur Belmiro ; 24 ; 49 ; 5
