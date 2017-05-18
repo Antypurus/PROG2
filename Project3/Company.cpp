@@ -255,7 +255,7 @@ void Empresa::addDriver(const Driver &driver)
 
 void Empresa::removeDriver(const unsigned int id)
 {
-	int c = this->drivers.count(id);
+	size_t c = this->drivers.count(id);
 	if (c == 0) {
 		printf("There is no driver with this id\n");
 		return;
@@ -499,7 +499,7 @@ std::vector<Shift*> Empresa::getPeriodsWithNoDriver() const
 
 unsigned int Empresa::busesInALine(const unsigned int lineId) 
 {
-	unsigned int counter = 0;
+	size_t counter = 0;
 	if (!this->doesLineExist(lineId)) {
 		printf("There is no line with this id\n");
 		return counter;

@@ -195,7 +195,7 @@ void DriverMenu(Empresa &empresa) {
 		{
 			system("cls");
 			std::vector<Driver>dr = empresa.getNotFullDrivers();
-			for (int i = 0; i < dr.size(); ++i) {
+			for (unsigned int i = 0; i < dr.size(); ++i) {
 				std::cout << dr[i] << std::endl;
 			}
 			system("pause");
@@ -448,7 +448,7 @@ void LineMenu(Empresa &empresa) {
 			op = 0;
 			break;
 		}
-		case 9:
+		case 9://query for a stop
 		{
 			string name = "";
 			system("cls");
@@ -456,7 +456,7 @@ void LineMenu(Empresa &empresa) {
 			cin.ignore();
 			std::getline(std::cin, name);
 			auto vec = empresa.linesWithStop(name);
-			for (int i = 0; i < vec.size(); ++i) {
+			for (unsigned int i = 0; i < vec.size(); ++i) {
 				std::cout << vec[i] << std::endl;
 			}
 			system("pause");
@@ -532,7 +532,7 @@ void shiftMenu(Empresa &empresa) {
 		case 2:
 		{
 			auto vec = empresa.getPeriodsWithNoDriver();
-			for (int i = 0; i < vec.size(); ++i) {
+			for (unsigned int i = 0; i < vec.size(); ++i) {
 				std::cout << *vec[i] << std::endl;
 			}
 			system("pause");
@@ -580,7 +580,7 @@ void routeCalculator(Empresa& empresa) {
 		return;
 	}
 
-	for (int i = 0; i < check.size(); ++i) {
+	for (unsigned int i = 0; i < check.size(); ++i) {
 		cout << check[i] << endl;
 	}
 	system("pause");
