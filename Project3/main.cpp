@@ -225,8 +225,9 @@ void LineMenu(Empresa &empresa) {
 		std::cout << "|      5-List Bus Info                |" << std::endl;
 		std::cout << "|      6-List All Lines               |" << std::endl;
 		std::cout << "|      7-Edit Stop                    |" << std::endl;
-		std::cout << "|      8-Edit Time Between Stops		|" << std::endl;
-		std::cout << "|      9-Back                         |" << std::endl;
+		std::cout << "|      8-Edit Time Between Stops      |" << std::endl;
+		std::cout << "|      9-Lines With A Stop            |" << std::endl;
+		std::cout << "|      10-Back                        |" << std::endl;
 		std::cout << "---------------------------------------" << std::endl;
 
 		std::stringstream option;
@@ -448,6 +449,21 @@ void LineMenu(Empresa &empresa) {
 			break;
 		}
 		case 9:
+		{
+			string name = "";
+			system("cls");
+			std::cout << "Stop Name:";
+			cin.ignore();
+			std::getline(std::cin, name);
+			auto vec = empresa.linesWithStop(name);
+			for (int i = 0; i < vec.size(); ++i) {
+				std::cout << vec[i] << std::endl;
+			}
+			system("pause");
+			op = 0;
+			return;
+		}
+		case 10:
 			return;
 		default:
 			op = 0;
